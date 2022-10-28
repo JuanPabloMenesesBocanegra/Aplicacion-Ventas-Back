@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ClienteService implements IClienteService{
+public class ClienteService implements ICRUDService<Cliente>{
 
     @Autowired
     private IClienteRepositorio clienteRepo;

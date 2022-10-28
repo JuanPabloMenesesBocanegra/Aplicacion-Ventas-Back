@@ -46,12 +46,12 @@ public class ClientreController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Cliente> delete(@PathVariable("id") Integer idCliente){
+    public ResponseEntity<Object> delete(@PathVariable("id") Integer idCliente){
 
         return clienteService.findById(idCliente)
                 .map( c -> {
                     clienteService.delete(idCliente);
-                    return ResponseEntity.ok(c);
+                    return ResponseEntity.ok().build();
 
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
