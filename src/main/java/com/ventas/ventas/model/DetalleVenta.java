@@ -1,4 +1,6 @@
 package com.ventas.ventas.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -12,6 +14,9 @@ public class DetalleVenta {
     private Double precio;
     private  Integer cantidad;
 
+    private Double precioTotal;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
@@ -40,8 +45,17 @@ public class DetalleVenta {
         return cantidad;
     }
 
+
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public Double getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(Double precioTotal) {
+        this.precioTotal = precioTotal;
     }
 
     public Producto getProducto() {
